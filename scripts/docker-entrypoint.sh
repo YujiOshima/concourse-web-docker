@@ -2,8 +2,12 @@
 set -e
 
 if [ "$1" = 'concourse' ] && [ "$2" = 'web' ]; then
+    : ${BASIC_AUTH_USERNAME:=$(cat $BASIC_AUTH_USERNAME_FILE)}
     : ${BASIC_AUTH_USERNAME:=ci}
+    : ${BASIC_AUTH_PASSWORD:=$(cat $BASIC_AUTH_PASSWORD_FILE)}
     : ${BASIC_AUTH_PASSWORD:=password}
+    : ${POSTGRES_USERNAME:=$(cat $POSTGRES_USERNAME_FILE)}
+    : ${POSTGRES_PASSWORD:=$(cat $POSTGRES_PASSWORD_FILE)}
     : ${POSTGRESQL_PORT:=5432}
 
     exec concourse web \
