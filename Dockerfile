@@ -1,4 +1,4 @@
-FROM vyshane/concourse-base
+FROM yujioshima/concourse-base
 MAINTAINER Vy-Shane Xie
 
 EXPOSE 8080 2222
